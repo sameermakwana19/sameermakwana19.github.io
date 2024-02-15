@@ -3,28 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>test</title>
-    <link rel="stylesheet" href="test.css" />
+    <title>Todo List</title>
+    <link rel="icon" type="image/x-icon" href="image.webp" />
+    <link rel="stylesheet" href="todo.css" />
   </head>
   <body>
-    <input type="text" id="user-input" placeholder="Enter a github username" />
-    <button id="submit-button">Submit</button>
-    <div class="user-card">
-      <img
-        src="https://avatars.githubusercontent.com/u/1?v=4"
-        alt="User Avatar"
-        class="user-avatar"
-      />
-      <div class="user-details">
-        <h2 class="user-name">John Doe</h2>
-        <p class="user-email">john.doe@example.com</p>
-        <p class="user-company">Google</p>
-        <p class="user-location">New York, USA</p>
-        <p class="user-created">Created On: January 1, 2022</p>
-        <p class="user-public-repos">99</p>
-        <a href="#" class="user-profile-link" target="_blank">View Profile</a>
-      </div>
+    <div class="todo-container">
+      <h1>Todo List</h1>
+      <form>
+        <div class="input-container">
+          <input type="text" id="todoInput" placeholder="Enter your task" />
+          <button id="addBtn">Add</button>
+        </div>
+      </form>
+      <div class="danger">Enter some value</div>
+      <ul id="todoList"></ul>
+      <button id="clear-btn">Clear All</button>
     </div>
-    <script src="test.js"></script>
+    <script src="todo.js"></script>
   </body>
 </html>
