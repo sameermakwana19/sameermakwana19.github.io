@@ -43,12 +43,12 @@ function addToDOM(item) {
 
 const createItem = (e) => {
   e.preventDefault();
-  if (!input.value) {
+  if (!input.value.trim()) {
     danger.textContent = "Please enter some value";
     danger.style.display = "block";
     return;
   } else {
-    let value = input.value;
+    let value = input.value.trim();
     // console.log("running");
     let isPresent = false;
     document.querySelectorAll(".todo-item").forEach((item) => {
