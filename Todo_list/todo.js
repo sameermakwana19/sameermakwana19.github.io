@@ -49,7 +49,7 @@ const createItem = (e) => {
     return;
   } else {
     let value = input.value;
-
+    // console.log("running");
     let isPresent = false;
     document.querySelectorAll(".todo-item").forEach((item) => {
       if (!isPresent) {
@@ -166,11 +166,16 @@ function deleteItem(e) {
 
 function updateItem(e) {
   // console.log(e.target.attributes.getNamedItem("data-id").value);
+  list
+    .querySelectorAll(".todo-item")
+    .forEach((item) => item.classList.remove("edit"));
+
   isEditMode = true;
 
   input.value = e.target.textContent;
   input.focus();
   e.target.classList.add("edit");
+  // console.log(document.querySelector(".edit"));
   // document.querySelectorAll(".todo-item").forEach((item, index) => {
   //   const itemId = item.attributes.getNamedItem("data-id").value;
   //   if (id === itemId) {
