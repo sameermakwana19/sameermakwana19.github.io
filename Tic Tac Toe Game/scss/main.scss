@@ -1,0 +1,25 @@
+@import "mixins";
+@import "container";
+@import "lines";
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+
+  @media screen and (max-width) {
+    font-size: 50%;
+  }
+}
+body {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: rgb(15, 15, 15);
+
+  @include flex-layout;
+  flex-direction: column;
+}
+h1 {
+  font-size: 5rem;
+  color: goldenrod;
+}
