@@ -45,8 +45,6 @@ function addToDOM(item) {
 const createItem = (e) => {
   e.preventDefault();
   if (!input.value.trim()) {
-
-  if (!input.value.trim()) {
     danger.textContent = "Please enter some value";
     danger.style.display = "block";
     input.value = "";
