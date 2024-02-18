@@ -1,6 +1,16 @@
 const boxes = document.querySelectorAll(".box");
 
-const isChecked = [false, false, false, false, false, false];
+const isChecked = [
+  false,
+  false,
+  false,
+  false,
+  false,
+  false,
+  false,
+  false,
+  false,
+];
 let currentState = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 
 let isGameOver = false;
@@ -10,7 +20,7 @@ let isUserOneTurn = true;
 boxes.forEach((box, index) => {
   box.addEventListener("click", (e) => {
     if (isChecked[index]) {
-      console.log("returning at ", index);
+      // console.log("returning at ", index);
       return;
     }
 
