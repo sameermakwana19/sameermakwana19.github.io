@@ -1,16 +1,16 @@
 const boxes = document.querySelectorAll(".box");
 
 const isChecked = [false, false, false, false, false, false];
-let currentState = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+let currentState = [0, 0, 0, 0, 0, 0, 0, 0, 0]; // 1 -> for user 1 & -1 ->user2
 
 let isGameOver = false;
-let winner = 0;
+let winner = 0; //  0 - Tie , 1 -> User1, -1 -> user2
 let isUserOneTurn = true;
 
 boxes.forEach((box, index) => {
   box.addEventListener("click", (e) => {
     if (isChecked[index]) {
-      console.log("returning at ", index);
+      // console.log("returning at ", index);
       return;
     }
 
@@ -45,7 +45,7 @@ boxes.forEach((box, index) => {
           winner === 1
             ? `User 1(O)&nbsp;&nbsp; WON`
             : `User 2(X)&nbsp;&nbsp; WON`;
-        modal.style.opacity = 0.7;
+        modal.style.opacity = 0.8;
         modal.style.zIndex = "10";
         // console.log("winner", winner);
       }
@@ -144,7 +144,7 @@ function checkGameOver() {
     currentState[4] === -1 &&
     currentState[7] === -1
   ) {
-    console.log("usertwo won 258");
+    // console.log("usertwo won 258");
     isGameOver = true;
     winner = -1;
     return;

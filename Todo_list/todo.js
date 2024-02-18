@@ -9,6 +9,7 @@ const API_URL = "https://jsonplaceholder.typicode.com/";
 
 const getData = async () => {
   let current = JSON.parse(localStorage.getItem("demo"));
+
   if (current && current.length != 0) {
     current.forEach((item) => addToDOM(item));
     return;
@@ -36,19 +37,21 @@ function addToDOM(item) {
     li.classList.add("completed");
   }
   li.setAttribute("data-id", item.id);
-  li.addEventListener("contextmenu", deleteItem);
-  li.addEventListener("click", updateItem);
+  li.addEventListener("contextmenu", deleteItem); // Right click
+  li.addEventListener("click", updateItem); // Left Click
   list.appendChild(li);
 }
 
 const createItem = (e) => {
   e.preventDefault();
-  if (!input.value) {
+
+  if (!input.value.trim()) {
     danger.textContent = "Please enter some value";
     danger.style.display = "block";
+    input.value = "";
     return;
   } else {
-    let value = input.value;
+    let value = input.value.trim();
     // console.log("running");
     let isPresent = false;
     document.querySelectorAll(".todo-item").forEach((item) => {
@@ -74,29 +77,17 @@ const createItem = (e) => {
       //   .attributes.getNamedItem("data-id").value;
 
       let id = document.querySelector(".edit").dataset.id;
+
       document.querySelectorAll(".todo-item").forEach((item, index) => {
         const itemId = item.attributes.getNamedItem("data-id").value;
+
         if (id === itemId) {
           document.querySelector(".edit").textContent = value;
           let current = JSON.parse(localStorage.getItem("demo"));
-
           current.splice(index, 1, { title: value, id });
-
           localStorage.setItem("demo", JSON.stringify(current));
         }
       });
-
-      // console.log(
-      //   Array.from(document.querySelectorAll(".todo-item")).sort((a, b) => {
-      //     // console.log(id ? (id--, 1) : -1, id);
-      //     console.log(`id :`, id);
-      //     // id =
-      //     // console.log(`updated :`, id);
-      //     id = id && --id;
-      //     console.log(`id : `, id);
-      //     return id ? 1 : -1;
-      //   })
-      // );
 
       document
         .querySelectorAll(".todo-item")
@@ -105,7 +96,6 @@ const createItem = (e) => {
       isEditMode = false;
 
       //TODO: Sort the Items
-
       let indexAt;
       let arr = JSON.parse(localStorage.getItem("demo"));
       arr.forEach((item, i) => {
@@ -134,7 +124,7 @@ const createItem = (e) => {
     //   .then((data) => {
     let current = JSON.parse(localStorage.getItem("demo")) || [];
     // current.push({ title: value, completed: false, id: current.length + 1 });
-    let random = Math.random().toString(10).substring(2, 9);
+    let random = Math.random().toString(10).substring(2, 9); // to generate the random id
     current.push({
       title: value,
       completed: false,
@@ -175,28 +165,11 @@ function updateItem(e) {
   input.value = e.target.textContent;
   input.focus();
   e.target.classList.add("edit");
-  // console.log(document.querySelector(".edit"));
-  // document.querySelectorAll(".todo-item").forEach((item, index) => {
-  //   const itemId = item.attributes.getNamedItem("data-id").value;
-  //   if (id === itemId) {
-  //     e.target.remove();
-  //     let current = JSON.parse(localStorage.getItem("demo"));
-  //     // let arrInd =
-  //     current.splice(index, 1);
-  //     console.log(current, id - 1);
-  //     localStorage.setItem("demo", JSON.stringify(current));
-  //   }
-  // });
-  // createItem(e);
-  // console.log(isEditMode);
-  // document.querySelectorAll(".todo-item").forEach();
 }
 
 getData();
-
+btn.addEventListener("click", createItem);
 clearBtn.addEventListener("click", () => {
   localStorage.removeItem("demo");
   list.innerHTML = "";
 });
-
-btn.addEventListener("click", createItem);
