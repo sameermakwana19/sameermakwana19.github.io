@@ -1,6 +1,5 @@
 const boxes = document.querySelectorAll(".box");
 
-<<<<<<< HEAD
 const isChecked = [
   false,
   false,
@@ -12,11 +11,7 @@ const isChecked = [
   false,
   false,
 ];
-let currentState = [0, 0, 0, 0, 0, 0, 0, 0, 0];
-=======
-const isChecked = [false, false, false, false, false, false];
 let currentState = [0, 0, 0, 0, 0, 0, 0, 0, 0]; // 1 -> for user 1 & -1 ->user2
->>>>>>> Todo-List-Project
 
 let isGameOver = false;
 let winner = 0; //  0 - Tie , 1 -> User1, -1 -> user2
