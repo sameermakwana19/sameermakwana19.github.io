@@ -1,5 +1,5 @@
 const boxes = document.querySelectorAll(".box");
-const restartBtn = document.querySelectorAll("#restart-btn")
+const restartBtn = document.querySelectorAll(".restart-btn")[0];
 
 restartBtn.onclick = () => location.reload()
 
