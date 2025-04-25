@@ -1,4 +1,7 @@
 const boxes = document.querySelectorAll(".box");
+const restartBtn = document.querySelectorAll("#restart-btn")
+
+restartBtn.onclick = () => location.reload()
 
 const isChecked = [
   false,
@@ -209,3 +212,7 @@ function checkGameOver() {
     isGameOver = true;
   }
 }
+
+
+
+
